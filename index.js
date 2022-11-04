@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-
+const path = require("path");
 const authRoute = require("./routes/auth");
 
 const userRoute = require("./routes/users");
@@ -29,10 +29,10 @@ app.use("/api/users", userRoute);
 app.use("/api/lists", listRoute);
 app.use("/api/movies", movieRoute);
 
-app.use(express.static(path.join(__dirname, "/client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
 });
 app.listen(process.env.PORT || 8800, () => {
   console.log("Backend server is running!");
