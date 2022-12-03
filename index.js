@@ -9,7 +9,8 @@ const cors = require("cors");
 };*/
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin:
+      "http://localhost:3000" || "https://enchanting-tuna-costume.cyclic.app",
   })
 );
 const mongoose = require("mongoose");
